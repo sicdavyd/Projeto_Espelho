@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Preditor de Idade e Gênero</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Escolha uma Imagem</h1>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" id="inputEscolher" name="imagem" accept="image/*" required>
+    
+    <!-- Carrossel de Imagens -->
+    <div class="carrossel">
+      <div class="containerCarrossel">
+        <img src="{{ url_for('static', filename='imagens/carrossel/img1.jpg') }}" class="img">
+        <img src="{{ url_for('static', filename='imagens/carrossel/img2.jpg') }}" class="img">
+        <img src="{{ url_for('static', filename='imagens/carrossel/img3.jpg') }}" class="img">
+        <img src="{{ url_for('static', filename='imagens/carrossel/img4.jpg') }}" class="img">
+        <img src="{{ url_for('static', filename='imagens/carrossel/img5.jpg') }}" class="img">
+        <img src="{{ url_for('static', filename='imagens/carrossel/img6.jpg') }}" class="img">  
+        <img src="{{ url_for('static', filename='imagens/carrossel/img7.jpg') }}" class="img">
+      </div>
+    </div>
+    
+    <br>
+    <button id="btnSubmit" type="submit">Enviar</button>
+  </form>
+
+  {% if resultado %}
+    <h2>Resultado:</h2>
+    <p>{{ resultado }}</p>
+  {% endif %}
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

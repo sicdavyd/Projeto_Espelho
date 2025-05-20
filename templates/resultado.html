@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <h1>Resultado</h1>
+    <p>{{ resultado }}</p>
+    <img class="imgOutPut" src="{{ imagem }}" alt="Imagem enviada" width="320">
+    <br>
+    <a href="/">
+        <button id='btnEnviarNovamente'>Enviar outra imagem</button>
+    </a>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
