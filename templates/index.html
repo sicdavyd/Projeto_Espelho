@@ -2,35 +2,40 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Preditor de Idade e Gênero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espelho Inteligente | Idade e Gênero</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Escolha uma Imagem</h1>
-  <form method="POST" enctype="multipart/form-data">
-    <input type="file" id="inputEscolher" name="imagem" accept="image/*" required>
-    
-    <!-- Carrossel de Imagens -->
-    <div class="carrossel">
-      <div class="containerCarrossel">
-        <img src="{{ url_for('static', filename='imagens/carrossel/img1.jpg') }}" class="img">
-        <img src="{{ url_for('static', filename='imagens/carrossel/img2.jpg') }}" class="img">
-        <img src="{{ url_for('static', filename='imagens/carrossel/img3.jpg') }}" class="img">
-        <img src="{{ url_for('static', filename='imagens/carrossel/img4.jpg') }}" class="img">
-        <img src="{{ url_for('static', filename='imagens/carrossel/img5.jpg') }}" class="img">
-        <img src="{{ url_for('static', filename='imagens/carrossel/img6.jpg') }}" class="img">  
-        <img src="{{ url_for('static', filename='imagens/carrossel/img7.jpg') }}" class="img">
-      </div>
+  <div class="container">
+    <div class="card">
+      <h1 class="title">Espelho Inteligente</h1>
+      <p class="subtitle">Envie uma foto para análise de idade e gênero</p>
+      
+      <form method="POST" enctype="multipart/form-data" class="upload-form">
+        <label for="inputEscolher" class="upload-area">
+          <div class="carrossel-container">
+            <div class="carrossel">
+              {% for i in range(1, 8) %}
+                <img src="{{ url_for('static', filename='imagens/carrossel/img' + i|string + '.jpg') }}" 
+                     class="carrossel-img" alt="Exemplo {{ i }}">
+              {% endfor %}
+            </div>
+            <div class="upload-overlay">
+              <svg class="upload-icon" viewBox="0 0 24 24">
+                <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+              </svg>
+              <p>Clique para enviar uma foto</p>
+            </div>
+          </div>
+          <input type="file" id="inputEscolher" name="imagem" accept="image/*" required>
+        </label>
+        
+        <button type="submit" class="btn-submit">Analisar Imagem</button>
+      </form>
     </div>
-    
-    <br>
-    <button id="btnSubmit" type="submit">Enviar</button>
-  </form>
-
-  {% if resultado %}
-    <h2>Resultado:</h2>
-    <p>{{ resultado }}</p>
-  {% endif %}
+  </div>
 
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

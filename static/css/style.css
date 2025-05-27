@@ -1,86 +1,277 @@
+:root {
+    --primary: #4361ee;
+    --secondary: #3f37c9;
+    --accent: #4895ef;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #4cc9f0;
+    --error: #f72585;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-    text-align: center;
-    background: linear-gradient(to right, rgba(25, 0, 255, 0.795), rgba(103, 180, 252, 0.7));
+    animation-name: mudarCorDeFundo;
+    /* Nome da animação */
+    animation-duration: 20s;
+    /* Duração de um ciclo completo da animação (20 segundos) */
+    animation-iteration-count: infinite;
+    /* Faz a animação repetir indefinidamente */
+    animation-direction: alternate;
+    /* Faz a animação ir e voltar (0% -> 100% -> 0%) */
+    animation-timing-function: ease-in-out;
+    /* Suaviza o início e o fim da transição de cores */
+
+    /* Cor de fundo inicial, caso a animação não seja suportada ou demore a carregar */
+    background-color: #0f172a;
+    /* Um azul bem escuro (slate-900) */
+    min-height: 100vh;
     padding: 20px;
-    justify-content: center;
-}
-
-h1 {
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-
-p {
-    font-family: sans-serif;
-    color: #fff;
-
-}
-#btnEnviarNovamente {
-    background-color: white;
-    border: none;
-    border-radius: 5px;
-    color: slateblue;
-    box-shadow: black;
-    cursor: pointer;
-    margin-top: 15px;
-    width: 140px;
-    height: 30px;
-    text-align: center;
-}
-#btnSubmit{
-    background-color: white;
-    border: none;
-    border-radius: 5px;
-    color: slateblue;
-    box-shadow: black;
-    cursor: pointer;
-    margin-top: 15px;
-    width: 140px;
-    height: 30px;
-    text-align: center;
-}
-
-#inputEscolher {
-    display: none;
-}
-
-.carrossel {
-    overflow: hidden;
-    width: 480px;
-    height: 360px; /* altura fixa para o container */
-    position: relative;
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
 }
 
-.containerCarrossel {
+@keyframes mudarCorDeFundo {
+
+    /* Ponto inicial da animação */
+    0% {
+        background-color: #0f172a;
+        /* Azul bem escuro (slate-900) */
+    }
+
+    /* Ponto intermédio da animação (33%) */
+    33% {
+        background-color: #1e3a8a;
+        /* Azul escuro (blue-800) */
+    }
+
+    /* Outro ponto intermédio da animação (66%) */
+    66% {
+        background-color: #172554;
+        /* Outro tom de azul escuro (indigo-900) */
+    }
+
+    /* Ponto final da animação */
+    100% {
+        background-color: #0f172a;
+        /* Volta ao azul bem escuro inicial */
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 40px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    color: var(--secondary);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: var(--dark);
+    opacity: 0.7;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.upload-form {
+    margin-top: 30px;
+}
+
+.upload-area {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.carrossel-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.carrossel {
+    position: relative;
     width: 100%;
     height: 100%;
-    position: relative;
 }
 
-.containerCarrossel img {
+.carrossel-img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
     opacity: 0;
-    transition: opacity 0.9s ease-in-out;
-    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: var(--border-radius);
 }
 
-.containerCarrossel img.ativa {
+.carrossel-img.ativa {
     opacity: 1;
-    z-index: 1;
 }
 
-.imgOutPut {
-    border-radius: 10px;
+.upload-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(67, 97, 238, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: var(--border-radius);
+}
+
+.upload-area:hover .upload-overlay {
+    opacity: 1;
+}
+
+.upload-icon {
+    width: 50px;
+    height: 50px;
+    fill: white;
+    margin-bottom: 15px;
+}
+
+#inputEscolher {
+    display: none;
+}
+
+.btn-submit,
+.btn-return {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+    margin-top: 20px;
+}
+
+.btn-submit:hover,
+.btn-return:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
+}
+
+/* Resultado page */
+.result-card {
+    padding: 30px;
+}
+
+.result-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+}
+
+@media (min-width: 768px) {
+    .result-content {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+    }
+}
+
+.image-container {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .image-container {
+        margin-bottom: 0;
+    }
+}
+
+.result-image {
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.result-details {
+    text-align: left;
+}
+
+.result-badge {
+    background: linear-gradient(135deg, #4361ee 0%, #4895ef 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+}
+
+.result-label {
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.result-value {
+    font-weight: 600;
+}
+
+.disclaimer {
+    color: var(--dark);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        padding: 25px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .carrossel-container {
+        height: 300px;
+    }
 }

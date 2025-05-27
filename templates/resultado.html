@@ -1,18 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Resultado</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado | Espelho Inteligente</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Resultado</h1>
-    <p>{{ resultado }}</p>
-    <img class="imgOutPut" src="{{ imagem }}" alt="Imagem enviada" width="320">
-    <br>
-    <a href="/">
-        <button id='btnEnviarNovamente'>Enviar outra imagem</button>
-    </a>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <div class="container">
+    <div class="card result-card">
+      <h1 class="title">Resultado da Análise</h1>
+      
+      <div class="result-content">
+        <div class="image-container">
+          <img class="result-image" src="{{ imagem }}" alt="Imagem analisada">
+        </div>
+        
+        <div class="result-details">
+        {% if 'Gênero:' in resultado and 'Idade:' in resultado %}
+            <div class="result-badge">
+            <span class="result-label">Gênero:</span>
+            <span class="result-value">{{ resultado.split('Gênero: ')[1].split('.')[0] }}</span>
+            </div>
+            
+            <div class="result-badge">
+            <span class="result-label">Idade:</span>
+            <span class="result-value">{{ resultado.split('Idade: ')[1].split(' ')[0] }} anos</span>
+            </div>
+        {% else %}
+            <div class="result-badge full-width">
+            <span class="result-value">{{ resultado }}</span>
+            </div>
+        {% endif %}
+        
+        <p class="disclaimer">Margem de erro de aproximadamente 8 anos</p>
+        </div>
+      </div>
+      
+      <a href="/" class="btn-return">Analisar outra imagem</a>
+    </div>
+  </div>
 
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
