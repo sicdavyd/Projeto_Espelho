@@ -40,11 +40,15 @@ Projeto_Espelho/
 ├── app.py                # Arquivo principal da aplicação Flask
 ├── requirements.txt      # Dependências do projeto
 ├── utils.py              # Funções auxiliares para detecção e classificação
+├── models/               # Pasta contendo todos os modelos de ML
+│   ├── modelo.h5         # Modelo customizado para gênero e idade
+│   ├── torchscript_model_0_66_49_wo_gl  # Modelo TorchScript de emoções
+│   └── yolov5/           # Framework YOLOv5 para detecção facial
 ├── templates/
 │   ├── index.html        # Página inicial para envio de imagens
 │   └── resultado.html    # Página para exibição dos resultados
 └── static/
-    └── uploads/          # Pasta para armazenar imagens enviadas
+    └── uploads/          # Pasta para armazenamento de imagens
 ```
 
 
