@@ -41,6 +41,7 @@ Projeto_Espelho/
 │   └── resultado.html    # Página para exibição dos resultados
 └── static/
     └── uploads/          # Pasta para armazenar imagens enviadas
+```
 
 ## 🧠 Como Funciona
 📤 **Envio de Imagem**: O usuário envia uma imagem através da página inicial.  
