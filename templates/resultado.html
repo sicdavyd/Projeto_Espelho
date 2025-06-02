@@ -18,23 +18,55 @@
         </div>
         
         <div class="result-details">
-        {% if 'Gênero:' in resultado and 'Idade:' in resultado %}
+        {# Verifica primeiro se houve um erro ao processar #}
+        {% if dados_analise.erro %}
+          <div class="result-badge full-width error-message"> {# Adicione uma classe CSS para estilizar erros se desejar #}
+            <span class="result-label">Erro na Análise:</span>
+            <span class="result-value">{{ dados_analise.erro }}</span>
+          </div>
+        {% else %}
+          {# Exibe Gênero se disponível e não for "N/A" #}
+          {% if dados_analise.genero and dados_analise.genero != "N/A" %}
             <div class="result-badge">
-            <span class="result-label">Gênero:</span>
-            <span class="result-value">{{ resultado.split('Gênero: ')[1].split('.')[0] }}</span>
+              <span class="result-label">Gênero:</span>
+              <span class="result-value">{{ dados_analise.genero }}</span>
+            </div>
+          {% endif %}
+          
+          {# Exibe Idade se disponível e não for "N/A" #}
+          {% if dados_analise.idade and dados_analise.idade != "N/A" %}
+            <div class="result-badge">
+              <span class="result-label">Idade:</span>
+              <span class="result-value">{{ dados_analise.idade }} anos</span>
+            </div>
+          {% endif %}
+
+          {# Exibe Emoção se disponível e não for "N/A" #}
+          {% if dados_analise.emocao and dados_analise.emocao != "N/A" %}
+            <div class="result-badge">
+              <span class="result-label">Emoção:</span>
+              <span class="result-value">{{ dados_analise.emocao }}</span>
             </div>
             
+            {# Exibe Confiança da Emoção se disponível e não for "N/A" #}
+            {% if dados_analise.confianca_emocao and dados_analise.confianca_emocao != "N/A" %}
             <div class="result-badge">
-            <span class="result-label">Idade:</span>
-            <span class="result-value">{{ resultado.split('Idade: ')[1].split(' ')[0] }} anos</span>
+              <span class="result-label">Confiança da Emoção:</span>
+              <span class="result-value">{{ dados_analise.confianca_emocao }}</span>
             </div>
-        {% else %}
+            {% endif %}
+          {% endif %}
+
+          {# Fallback se nenhum dado específico estiver disponível, mas não houve erro #}
+          {% if dados_analise.genero == "N/A" and dados_analise.idade == "N/A" and dados_analise.emocao == "N/A" %}
             <div class="result-badge full-width">
-            <span class="result-value">{{ resultado }}</span>
+              <span class="result-value">Não foi possível determinar os dados da imagem.</span>
             </div>
+          {% endif %}
+          
         {% endif %}
         
-        <p class="disclaimer">Margem de erro de aproximadamente 8 anos</p>
+        <p class="disclaimer">Margem de erro de aproximadamente 8 anos (para idade)</p>
         </div>
       </div>
       
