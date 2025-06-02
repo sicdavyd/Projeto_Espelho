@@ -28,3 +28,14 @@ python app.py
 ```
 ## 🌐 Acessando a Aplicação  
 Abra no navegador: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+Projeto_Espelho/
+│
+├── app.py                # Arquivo principal da aplicação Flask
+├── requirements.txt      # Dependências do projeto
+├── utils.py              # Funções auxiliares para detecção e classificação
+├── templates/
+│   ├── index.html        # Página inicial para envio de imagens
+│   └── resultado.html    # Página para exibição dos resultados
+└── static/
+    └── uploads/          # Pasta para armazenar imagens enviadas
