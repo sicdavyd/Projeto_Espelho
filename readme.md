@@ -1,5 +1,5 @@
 # 🪞 Projeto Espelho Interativo  
-*Um espelho inteligente com reconhecimento de objetos usando TensorFlow e YOLO.*  
+*Um espelho inteligente com reconhecimento de emoções usando TensorFlow/PyTorch e YOLO.*  
 
 ---
 
@@ -29,7 +29,7 @@ python app.py
 ## 🌐 Acessando a Aplicação  
 Abra no navegador: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
 ```text
 Projeto_Espelho/
 │
@@ -41,3 +41,9 @@ Projeto_Espelho/
 │   └── resultado.html    # Página para exibição dos resultados
 └── static/
     └── uploads/          # Pasta para armazenar imagens enviadas
+
+## 🧠 Como Funciona
+📤 **Envio de Imagem**: O usuário envia uma imagem através da página inicial.  
+🔍 **Detecção de Pessoa**: A imagem é processada para verificar a presença de uma pessoa.  
+😊 **Classificação de Emoção**: Se uma pessoa for detectada, a imagem é analisada para identificar a emoção.  
+📊 **Exibição de Resultado**: O resultado da análise é exibido na página de resultados.
