@@ -4,7 +4,7 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
@@ -203,5 +203,4 @@ def gerar_resultado(path_arquivo, nosso_modelo) -> str:
         resultados["erro"] = f"Arquivo não encontrado: {path_arquivo}"
     except Exception as e:        
         resultados["erro"] = logging.exception(f"Erro ao processar imagem {path_arquivo}. Erro: {e}:")
-
     return resultados

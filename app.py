@@ -1,8 +1,7 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, url_for
 import os
 import uuid
-from PIL import Image
-from utils import rotular_imagens, detecta_pessoa, tratar_imagem, carregar_nosso_modelo, gerar_resultado
+from utils import detecta_pessoa, carregar_nosso_modelo, gerar_resultado
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'static/uploads'
