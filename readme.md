@@ -17,16 +17,24 @@
 
 ## ⚙️ Configuração Inicial  
 
-### 1. Criar e Ativar o Ambiente Virtual  
+### 1. Criar o Ambiente Virtual  
 ```bash
 python -m venv venv
-.\venv\Scripts\activate  # Windows
 ```
-### 2. Instalar Dependências
+### 2. Ativar o Ambiente Virtual
+- **Windows**
+```bash
+.\venv\Scripts\activate
+```
+- **Linux/MacOS**
+```bash
+source venv/bin/activate
+```
+### 3. Instalar Dependências
 ```bash
 pip install -r requirements.txt
 ```
-### 3. Executar a Aplicação
+### 4. Executar a Aplicação
 ```bash
 python app.py
 ```
@@ -52,3 +60,10 @@ Projeto_Espelho/
 ```
 
 
+## Grupo
+Amanda Soares Souza - 202302597
+Deivison Oliveira da Silva - 202302602
+Leonardo Côrtes Filho - 202302616
+Mateus de Almeida Souza - 202302622
+Thiago Nascente Borges - 202302630
+Vinicius Silva Benevides - 202302633
