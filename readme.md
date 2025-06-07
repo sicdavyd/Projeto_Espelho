@@ -59,11 +59,13 @@ Projeto_Espelho/
     └── uploads/          # Pasta para armazenamento de imagens
 ```
 
+## Documentação sobre verificação e validação.  
+[Link de acesso](https://github.com/sicdavyd/Projeto_Espelho/blob/main/documentacao_etapa_4.md)  
 
 ## Grupo
-Amanda Soares Souza - 202302597
-Deivison Oliveira da Silva - 202302602
-Leonardo Côrtes Filho - 202302616
-Mateus de Almeida Souza - 202302622
-Thiago Nascente Borges - 202302630
-Vinicius Silva Benevides - 202302633
+Amanda Soares Souza - 202302597  
+Deivison Oliveira da Silva - 202302602  
+Leonardo Côrtes Filho - 202302616  
+Mateus de Almeida Souza - 202302622  
+Thiago Nascente Borges - 202302630  
+Vinicius Silva Benevides - 202302633  
