@@ -43,3 +43,21 @@
   Auditorias internas sobre privacidade de dados e requisitos regulatórios.
 - **Validação:**  
   Certificação ANVISA para dispositivos médicos Classe II, confirmando conformidade legal.
+
+
+# Uso do sistema implementado:  
+
+## Diagnóstico Emocional por IA
+
+Com base nos dados coletados pela inteligência artificial, será criada uma tabela personalizada com as informações do usuário.
+
+Essa tabela incluirá:
+- **Data da verificação**  
+- **Idade percebida** pela IA  
+- **Estado emocional atual**
+
+A partir dessas informações, a IA será capaz de gerar um **diagnóstico básico**, informando o usuário sobre:
+- Seu **estado emocional** ao longo do período analisado  
+- Possíveis **sinais de adoecimento** físico ou psicológico
+
+Com isso, a IA poderá **recomendar uma consulta médica**, caso identifique indícios relevantes que justifiquem uma avaliação profissional.
