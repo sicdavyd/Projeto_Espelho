@@ -3,37 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Espelho Inteligente | Idade e Gênero</title>
+  <title>Espelho Inteligente | Reconhecimento Facial</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1 class="title">Espelho Inteligente</h1>
-      <p class="subtitle">Envie uma foto para análise de idade e gênero</p>
-      
-      <form method="POST" enctype="multipart/form-data" class="upload-form">
-        <label for="inputEscolher" class="upload-area">
-          <div class="carrossel-container">
-            <div class="carrossel">
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Espelho<span>IA</span></div>
+      <button class="nav-button" id="navButton">Teste agora</button>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="content-container">
+      <div class="left-content">
+        <button class="feature-badge">Espelho interativo</button>
+        <h1 class="main-title">
+          Tenha uma <span class="highlight">análise real</span> de emoções, idade e genêro com nosso sistema de <span class="highlight">reconhecimento facial</span>
+        </h1>
+        <p class="description">
+          Nosso sistema avançado de inteligência artificial analisa suas expressões faciais em tempo real, fornecendo dados precisos sobre sua idade estimada, gênero e estado emocional. Experimente agora e descubra o que sua face revela.
+        </p>
+        <button class="cta-button" id="ctaButton">
+          Teste agora
+        </button>
+      </div>
+
+      <div class="right-content">
+        <div class="circle-container">
+          <div class="circle-border">
+            <div class="carousel">
               {% for i in range(1, 8) %}
                 <img src="{{ url_for('static', filename='imagens/carrossel/img' + i|string + '.jpg') }}" 
-                     class="carrossel-img" alt="Exemplo {{ i }}">
+                     class="carousel-img {% if loop.first %}active{% endif %}" alt="Exemplo {{ i }}">
               {% endfor %}
             </div>
-            <div class="upload-overlay">
-              <svg class="upload-icon" viewBox="0 0 24 24">
-                <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-              </svg>
-              <p>Clique para enviar uma foto</p>
-            </div>
           </div>
-          <input type="file" id="inputEscolher" name="imagem" accept="image/*" required>
-        </label>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal de Upload -->
+  <div class="modal" id="uploadModal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <div class="card">
+        <h1 class="title">Espelho Inteligente</h1>
+        <p class="subtitle">Envie uma foto para análise de idade e gênero</p>
         
-        <button type="submit" class="btn-submit">Analisar Imagem</button>
-      </form>
+        <form method="POST" enctype="multipart/form-data" class="upload-form" id="uploadForm">
+          <label for="inputEscolher" class="upload-area">
+            <div class="carrossel-container">
+              <div class="carrossel">
+                {% for i in range(1, 8) %}
+                  <img src="{{ url_for('static', filename='imagens/carrossel/img' + i|string + '.jpg') }}" 
+                       class="carrossel-img" alt="Exemplo {{ i }}">
+                {% endfor %}
+              </div>
+              <div class="upload-overlay">
+                <svg class="upload-icon" viewBox="0 0 24 24">
+                  <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                </svg>
+                <p>Clique para enviar uma foto</p>
+              </div>
+            </div>
+            <input type="file" id="inputEscolher" name="imagem" accept="image/*" required>
+          </label>
+          
+          <button type="submit" class="btn-submit">Analisar Imagem</button>
+        </form>
+      </div>
     </div>
   </div>
 
